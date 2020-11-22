@@ -1,0 +1,12 @@
+{
+  "instructors": [
+    {
+      "avatar_url": "http://www.yaoh.com.br",
+      "name": "Joao Pereira",
+      "birth": 1013040000000,
+      "gender": "M",
+      "services": "Crossfit, academia, corrida",
+      "created_at": 1606012750047
+    }
+  ]
+}

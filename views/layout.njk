@@ -18,14 +18,17 @@
         <div class="links">
             <h1>Just Gym</h1>
             <div class="links-page">
-            <a href="/instructors">Instrutores</a>
+            <a class="active" href="/instructors">Instrutores</a>
             <a href="/members">Membros</a>
             </div>
         </div>
     </header>
+
+            {% block content %} {% endblock %}
+
     </div>
     
-    {% block content %} {% endblock %}
+    
 
 </body>
 </html>
