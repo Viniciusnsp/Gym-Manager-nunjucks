@@ -1,13 +1,14 @@
 const fs = require('fs')
 const data = require("./data.json")
-const { age } = require('./util')
+const { age, date } = require('./util')
 
+//show
 exports.show = function(req, res) {
-
+    //buscando o instrutor por id
     const { id } = req.params
 
     const foundInstructor = data.instructors.find(function(instructor){
-        return instructor.id == id
+        return id == instructor.id
     })
 
     if (!foundInstructor) return res.send("Instrutor não encontrado")
@@ -16,14 +17,15 @@ exports.show = function(req, res) {
         ...foundInstructor,
         age: age(foundInstructor.birth),
         services: foundInstructor.services.split(","),
-        created_at: "",
+        created_at: new Intl.DateTimeFormat("pt-BR").format(foundInstructor.created_at),
     }
 
 
 
     return res.render("instructors/show", { instructor })
 }
-//post
+
+//create
 exports.post = function(req, res) {
 
         const keys = Object.keys(req.body)
@@ -61,8 +63,53 @@ exports.post = function(req, res) {
         // return res.send(req.body)
     }
 
-    
-
 //update
+exports.edit = function(req, res) {
+    //buscando o instrutor por id
+    const { id } = req.params
+
+    const foundInstructor = data.instructors.find(function(instructor){
+        return instructor.id == id
+    })
+
+    if (!foundInstructor) return res.send("Instrutor não encontrado")
+
+    const instructor = {
+        ...foundInstructor,
+        birth: date(foundInstructor.birth)
+    }
+
+    return res.render('instructors/edit', { instructor })
+}
+
+//put
+exports.put = function(req, res) {
+        //buscando o instrutor por id
+        const { id } = req.body
+        let index = 0
+
+        const foundInstructor = data.instructors.find(function(instructor, foundIndex){ //usando o foundindex para localizar o instrutor
+            if (id == instructor.id) {
+                index = foundIndex
+                return true
+            }
+        })
+    
+        if (!foundInstructor) return res.send("Instrutor não encontrado")
+
+        const instructor = {
+            ...foundInstructor,
+            ...req.body,
+            birth: Date.parse(req.body.birth)
+        }
+
+        data.instructors[index] = instructor
+
+        fs.writeFile("data.json", JSON.stringify(data, null, 2), function(err){
+            if (err) return res.send("Write error!")
+
+            return res.redirect(`/instructors/${id}`)
+        })
+}
 
 //delete
