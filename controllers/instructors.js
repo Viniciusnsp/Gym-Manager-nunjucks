@@ -1,6 +1,10 @@
 const fs = require('fs')
-const data = require("./data.json")
-const { age, date } = require('./util')
+const data = require("../data.json")
+const { age, date } = require('../util')
+
+exports.index = function(req, res){
+    return res.render("instructors/index", { instructors: data.instructors })
+}
 
 //show
 exports.show = function(req, res) {
@@ -26,6 +30,10 @@ exports.show = function(req, res) {
 }
 
 //create
+exports.create = function(req, res){
+    return res.render("instructors/create")
+}
+
 exports.post = function(req, res) {
 
         const keys = Object.keys(req.body)
@@ -100,7 +108,8 @@ exports.put = function(req, res) {
         const instructor = {
             ...foundInstructor,
             ...req.body,
-            birth: Date.parse(req.body.birth)
+            birth: Date.parse(req.body.birth),
+            id: Number(req.body.id)
         }
 
         data.instructors[index] = instructor
@@ -113,3 +122,19 @@ exports.put = function(req, res) {
 }
 
 //delete
+exports.delete = function(req, res) {
+    const { id } = req.body
+
+    const filteredInstructors = data.instructors.filter(function(instructor) {
+        return instructor.id != id
+    })
+
+    data.instructors = filteredInstructors
+
+    fs.writeFile("data.json", JSON.stringify(data, null, 2), function(err){
+        if (err) return res.send("Write file error")
+
+        return res.redirect("/instructors")
+    })
+
+}

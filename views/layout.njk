@@ -1,34 +1,33 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    {% block head %}
-    <title>Just Gym</title>
-    {% endblock %}
+        {% block head %}
+            <title>Just Gym</title>
+        {% endblock %}
 
-    <link rel="stylesheet" href="/style.css">
+        <link rel="stylesheet" href="/style.css">
 
-</head>
-<body>
-   <div class="container">
-    <header>
-        <div class="links">
-            <h1>Just Gym</h1>
-            <div class="links-page">
-            <a class="active" href="/instructors">Instrutores</a>
-            <a href="/members">Membros</a>
-            </div>
+    </head>
+    <body>
+        <div class="container">
+            <header>
+                <div class="links">
+                    <h1>Just Gym</h1>
+                    <div class="links-page">
+                        <a href="/instructors">Instrutores</a>
+                        <a href="/members">Membros</a>
+                    </div>
+                </div>
+            </header>
+
+            {% block content %}{% endblock %}
+
         </div>
-    </header>
 
-            {% block content %} {% endblock %}
+        <script src="/scripts.js"></script>
 
-    </div>
-    
-    
-
-</body>
+    </body>
 </html>

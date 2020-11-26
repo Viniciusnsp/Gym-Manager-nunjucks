@@ -1,46 +1,35 @@
 {% extends "layout.njk" %}
 
 {% block content %}
-<div class="card">
-     <section class="avatar" >
-         <div class="img-centro">
-        <img src="https://source.unsplash.com/collection/3465564/300x300" alt="Foto do Instrutor">
-        </div>
-     </section> 
+    <div class="card table-container">
+        <a href="/instructors/create">Novo</a>
+        <table width="100%">
+            <thead>
+                <tr>
+                    <th>Instructor</th>
+                    <th>Atendimento</th>
+                    <th>Ação</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for instructor in instructors %}
+                    <tr>
+                        <td>
+                            <img src="{{ instructor.avatar_url }}" alt="Foto do Instrutor">
+                            {{ instructor.name }}</td>
+                        <td>
+                            {{ instructor.services }}
+                        </td>
 
-     <section class="details">
+                        <td>
+                            <a href="/instructors/{{ instructor.id }}">ver</a>
+                        </td>
+                    </tr>
+                {% endfor %}
 
-         <h3>Detalhes</h3>
+            </tbody>
+        </table>
 
-         <div class="item">
-             <div>Instrutor</div>
-             <div>Guilherme Sadaiva</div>
-         </div>
-
-         <div class="item">
-             <div>Idade</div>
-             <div>29</div>
-         </div>
-
-         <div class="item">
-             <div>Sexo</div>
-             <div>Masculino</div>
-         </div>
-
-         <div class="item">
-             <div>Acompanhamento</div>
-             <div>
-                 <span>Musculação</span>
-                 <span>Crossfit</span>
-             </div>
-         </div>
-
-           <div class="item">
-             <div>Desde</div>
-             <div>01/01/2019</div>
-         </div>
-
-     </section>
-</div>
+    </div>
 
 {% endblock content %}

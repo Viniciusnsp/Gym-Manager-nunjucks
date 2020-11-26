@@ -1,8 +1,9 @@
 {
+  "members": [],
   "instructors": [
     {
-      "id": "1",
-      "avatar_url": "https://source.unsplash.com/collection/3465564/300x300",
+      "id": 1,
+      "avatar_url": "https://images.pexels.com/photos/4218662/pexels-photo-4218662.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
       "name": "Vinicius Neves da Silva Pereira",
       "birth": 950140800000,
       "gender": "M",
@@ -11,21 +12,12 @@
     },
     {
       "id": 2,
-      "avatar_url": "https://source.unsplash.com/collection/3465564/300x300",
+      "avatar_url": "https://images.unsplash.com/photo-1485727749690-d091e8284ef3?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
       "name": "Vinicius Neves da Silva Pereira",
       "birth": 855532800000,
       "gender": "M",
       "services": "Crossfit, academia, corrida",
       "created_at": 1606179869920
-    },
-    {
-      "id": 3,
-      "avatar_url": "https://source.unsplash.com/collection/3465564/300x300",
-      "name": "Joao",
-      "birth": 950140800000,
-      "gender": "M",
-      "services": "Crossfit, natação",
-      "created_at": 1606271997287
     }
   ]
 }
