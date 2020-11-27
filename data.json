@@ -1,5 +1,16 @@
 {
-  "members": [],
+  "members": [
+    {
+      "id": 1,
+      "avatar_url": "https://images.unsplash.com/photo-1517344368193-41552b6ad3f5?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+      "birth": 867801600000,
+      "name": "Cassiano",
+      "email": "cassiano@gmail.com",
+      "gender": "M",
+      "weight": "77",
+      "height": "188"
+    }
+  ],
   "instructors": [
     {
       "id": 1,

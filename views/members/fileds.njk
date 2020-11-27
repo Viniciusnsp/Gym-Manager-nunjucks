@@ -1,50 +1,50 @@
 <div class="item">
     <div>Avatar URL</div>
     <div>
-        <input type="url" name="avatar_url" placeholder="http://" value="{{ instructor.avatar_url }}">
+        <input type="url" name="avatar_url" placeholder="http://" value="{{ member.avatar_url }}">
     </div>
 </div>
 
 <div class="item">
     <div>Nome</div>
     <div>
-        <input type="text" name="name" value="{{ instructor.name }}">
+        <input type="text" name="name" value="{{ member.name }}">
     </div>
 </div>
 
 <div class="item">
     <div>Data de Nascimento</div>
     <div>
-        <input type="date" name="birth" value="{{ instructor.birth }}">
+        <input type="date" name="birth" value="{{ member.birth }}">
     </div>
 </div>
 
 <div class="item">
     <div>Email</div>
     <div>
-        <input type="text" name="email" value="{{ instructor.name }}">
+        <input type="text" name="email" value="{{ member.email }}">
     </div>
 </div>
 
 <div class="item">
     <div>Sexo</div>
     <div>
-        <span><input type="radio" name="gender" value="M" {% if instructor.gender == 'M' %} checked="checked" {% endif %}>Masculino</span>
-        <span><input type="radio" name="gender" value="F" {% if instructor.gender == 'F' %} checked="checked" {% endif %}>Feminino</span>
+        <span><input type="radio" name="gender" value="M" {% if member.gender == 'M' %} checked="checked" {% endif %}>Masculino</span>
+        <span><input type="radio" name="gender" value="F" {% if member.gender == 'F' %} checked="checked" {% endif %}>Feminino</span>
     </div>
 </div>
 
 <div class="item">
-    <div>Peso</div>
+    <div>Peso (kg)</div>
     <div>
-        <input type="text" name="peso" value="{{ instructor.name }}">
+        <input type="number" name="weight" value="{{ member.weight }}">
     </div>
 </div>
 
 <div class="item">
-    <div>Altura</div>
+    <div>Altura (cm)</div>
     <div>
-        <input type="text" name="altura" value="{{ instructor.name }}">
+        <input type="number" name="height" value="{{ member.height }}">
     </div>
 </div>
 

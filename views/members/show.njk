@@ -4,7 +4,7 @@
     <div class="card">
         <section class="avatar">
             <div class="img-centro">
-                <img src="{{instructor.avatar_url}}" alt="Foto do Instrutor">
+                <img src="{{member.avatar_url}}" alt="Foto do Membro">
             </div>
         </section>
 
@@ -13,35 +13,36 @@
             <h3>Detalhes</h3>
 
             <div class="item">
-                <div>Instrutor</div>
-                <div>{{ instructor.name }}</div>
+                <div>Membro</div>
+                <div>{{ member.name }}</div>
             </div>
 
             <div class="item">
-                <div>Idade</div>
-                <div>{{ instructor.age }}</div>
+                <div>Email</div>
+                <div>{{ member.email }}</div>
+            </div>
+
+            <div class="item">
+                <div>Aniversário</div>
+                <div>{{ member.birth }}</div>
             </div>
 
             <div class="item">
                 <div>Sexo</div>
-                <div>{{ "Masculino" if instructor.gender == "M" else "Feminino"}}</div>
+                <div>{{ "Masculino" if member.gender == "M" else "Feminino"}}</div>
             </div>
 
             <div class="item">
-                <div>Acompanhamento</div>
-                <div>
-                    {% for service in instructor.services %}
-                        <span>{{ service }}</span>
-                    {% endfor %}
-                </div>
+                <div>Peso (kg)</div>
+                <div>{{ member.weight}}</div>
             </div>
 
             <div class="item">
-                <div>Desde</div>
-                <div>{{ instructor.created_at}}</div>
+                <div>Altura (cm)</div>
+                <div>{{ member.height}}</div>
             </div>
 
-            <a href="/instructors/{{instructor.id}}/edit" class="button">Editar</a>
+            <a href="/members/{{member.id}}/edit" class="button">Editar</a>
 
         </section>
     </div>
